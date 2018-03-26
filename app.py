@@ -17,7 +17,7 @@ dropdown = []
 for ticker in tickers:
   ticker = ticker.replace('WIKI/', '')
   dropdown.append(ticker)
-
+dropdown = sorted(dropdown)
 def input(ticker, prices):
   # setup
   baseURL = 'https://www.quandl.com/api/v3/datatables/WIKI/PRICES?'
