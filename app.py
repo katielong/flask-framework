@@ -2,11 +2,13 @@ from flask import Flask, render_template, request, redirect
 import pandas as pd
 import requests
 import re
+import os
 from bokeh.plotting import figure, output_file, show
 from bokeh.models import ColumnDataSource
 from bokeh.embed import components
 from bokeh.core.properties import value
 from bokeh.models.formatters import DatetimeTickFormatter
+from boto.s3.connection import S3Connection
 
 app = Flask(__name__)
 
@@ -21,7 +23,7 @@ dropdown = sorted(dropdown)
 def input(ticker, prices):
   # setup
   baseURL = 'https://www.quandl.com/api/v3/datatables/WIKI/PRICES?'
-  token = 'Ta-MxDGTmzA-WyAj4-zY'
+  token = os.environ['TOKEN'] #Heroku
   ticker = ticker
   URL = baseURL + '&ticker=' + ticker + '&api_key=' + token
   palette = dict()
