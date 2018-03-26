@@ -8,7 +8,6 @@ from bokeh.models import ColumnDataSource
 from bokeh.embed import components
 from bokeh.core.properties import value
 from bokeh.models.formatters import DatetimeTickFormatter
-from boto.s3.connection import S3Connection
 
 app = Flask(__name__)
 
